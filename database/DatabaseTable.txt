@@ -1,0 +1,54 @@
+medigenDB
+
+create database:create database medigenDB 
+use database: use medigenDB
+
+create salt_details table : 
+create table salt_details(salt_id int primary key,content text, uses_list json, works json, common_side_effect json,salt_name varchar)
+insert into salt_details(content,uses_list,works,common_side_effect,salt_name)values('UDILIV 300MG TABLET 15\'S (UDCA) is a bile acid derived from bear bile and is also produced synthetically.It has been used for several decades as a therapeutic agent to manage various liver disorders.UDCA is primarily known for its hepatoprotective properties and is used in the treatment of gallstones, primary biliary cholangitis (PBC), and other cholestatic liver conditions.This bile acid works by reducing cholesterol absorption, improving bile flow, and exerting anti-inflammatory effects, thereby promoting liver health.',
+'["Helps in dissolving gallstones.","Is used in the treatment of primary biliary cholangitis (PBC).","Aids in managing other cholestatic liver disorders.","Can be used to prevent gallstone formation.","Assists in improving liver function."]','["Dosage for children:The dosage depends on their body weight and the specific liver disorder being treated. It is typically prescribed by a pediatrician or gastroenterologist.","Dosage for adults:The recommended dosage varies depending on the indication. For gallstone dissolution, the usual dose is 8-10 mg/kg body weight per day, divided into two to three doses. In the treatment of primary biliary cholangitis (PBC), the typical dose ranges from 13-15 mg/kg body weight per day, also divided into multiple doses. However, dosages may differ based on individual patient factors, and it is essential to follow the specific instructions provided by a healthcare professional."]',
+'["Diarrhea","Abdominal discomfort","Nausea","Vomiting","Hair loss (rare)"]','UDILIV 300MG TABLET 15\'S')
+
+product_content table: 
+create table product_content(id int auto_increment primary key, salt_id int, p_name varchar(50),p_company varchar(50),generic_name varchar(50), avg_price decimal(5,2),p_price decimal(5,2),chemical_formation varchar(50), foreign key(salt_id) references salt_details(salt_id));
+insert into product_content(salt_id, p_name, p_company, generic_name, avg_price, p_price, chemical_formation)
+values
+(1, 'Paracetamol 500mg', 'XYZ Pharma', 'Acetaminophen', 100.00, 85.00, 'C8H9NO2'),
+(1, 'Paracetamol 325mg', 'XYZ Pharma', 'Acetaminophen', 75.00, 65.00, 'C8H9NO2'),
+(1, 'Paracetamol Extra Strength 650mg', 'XYZ Pharma', 'Acetaminophen', 150.00, 130.00, 'C8H9NO2'),
+(1, 'Paracetamol Children 120mg/5ml', 'XYZ Pharma', 'Acetaminophen', 50.00, 45.00, 'C8H9NO2');
+
+rating_review table:
+create table rating_review(id int auto_increment primary key, salt_id int, rating_value decimal(5,2),reviews json,foreign key (salt_id) references salt_details(salt_id))
+insert into rating_review (salt_id, rating_value, reviews)
+values
+(1, 4.5, '["Effective for treating liver issues. Great product!", "Helps in dissolving gallstones and improving liver function."]'),
+(1, 3.8, '["Good for general liver health but causes mild side effects like nausea.", "Slight improvement in digestion."]'),
+(1, 5.0, '["Excellent results for primary biliary cholangitis treatment. Highly recommend.", "No side effects and very effective."]'),
+(1, 4.2, '["Useful for gallstone dissolution, but I experienced mild abdominal discomfort.", "Good results with consistent use."]');
+
+
+freq_ques table:
+create table freq_ques(id int auto_increment primary key, salt_id int, question text, answer text,foreign key (salt_id) references salt_details(salt_id))
+insert into freq_ques (salt_id, question, answer)
+values
+(1, 'What if I vomit after taking A Mol 650mg Tablet?', 'If you vomit in less than 30 minutes after having a dose of A Mol 650mg Tablet tablets or syrup, retake the same dose again. If you vomit after 30 minutes of a dose, you do not need to take another one until the next standard dose.'),
+(1, 'When will I feel better after taking the A Mol 650mg Tablet?', 'Usually, you will start feeling better after about half an hour of taking a A Mol 650mg Tablet.'),
+(1, 'How often can I take the A Mol 650mg Tablet?', 'You should only take four doses of A Mol 650mg Tablet in 24 hours. There should be a gap of at least 4 hours between two doses. Do not take A Mol 650mg Tablet for more than 3 days without consulting a doctor first.'),
+(1, 'Is A Mol 650mg Tablet an antibiotic?', 'No, A Mol 650mg Tablet is not an antibiotic. It works as a painkiller and fever-reducing medicine.'),
+(1, 'Can I take A Mol 650mg Tablet and ibuprofen together?', 'Ibuprofen and A Mol 650mg Tablet are safe medicines, but both should not be used together. Consult your doctor if you are not sure.'),
+(1, 'How long does a A Mol 650mg Tablet take to work?', 'A Mol 650mg Tablet takes around 30-45 min to start working and show its effects. It is advised to take this medicine for the duration suggested by the doctor. Consult your doctor if you experience any bothersome side effects.'),
+(1, 'What are the serious side effects of taking an excess of the A Mol 650mg Tablet?', 'Overdose of A Mol 650mg Tablet may cause severe life-threatening liver injury. Taking more than the prescribed dose may also cause kidney injury, decreased platelet count, and even coma. Early symptoms of an overdose include nausea, vomiting, and general tiredness. Immediately consult a doctor or reach an emergency in case of a suspected overdose.');
+
+salt_rating_review table: 
+create table salt_rating_review(id int auto_increment primary key, salt_id int, salt_rating_value decimal(5,2),salt_reviews json,foreign key(salt_id) references salt_details(salt_id))
+insert into salt_rating_review (salt_id, salt_rating_value, salt_reviews)
+values
+(1, 4.5, '["This product worked well for me, I experienced relief within a few hours.", "Good results, but it took a little longer to show effects than expected."]'),
+(1, 3.8, '["The product is decent, but the side effects were a bit troublesome.", "It helped with my condition, but I had mild stomach discomfort."]'),
+(1, 4.0, '["Good product, worked as expected, but I experienced slight dizziness.", "I would recommend it for mild pain relief, but it may cause some minor side effects."]');
+
+
+
+create user table 
+create table users(user_id int auto_increment primary key,email varchar(255),password_hashes varchar(255));

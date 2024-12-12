@@ -1,0 +1,214 @@
+.compareContainer {
+    padding: 1rem;
+    font-size: 18px;
+  }
+  
+  .heading {
+    font-size: 1.4rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+  }
+  
+  .subheading {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 1.5rem;
+  }
+  
+  .productRow {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 1rem;
+  }
+  
+  .card {
+    background: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 1rem;
+    width: 22%;
+    text-align: left;
+    position: relative;
+  }
+  
+  .img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .card img {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0; /* Place behind the image */
+  }
+  
+  .productName {
+    font-size: 1.5rem;
+    color: black;
+    margin-bottom: 0.5rem;
+    z-index: 2; /* Ensure text is above the purple background */
+  }
+  
+  .company {
+    font-size: 1rem;
+    color: #7b7878;
+    margin-bottom: 1rem;
+  }
+  
+  .label {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #555;
+  }
+  
+  .value {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 1rem;
+  }
+  
+  .ratingTitle {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    margin-top: 1rem;
+  }
+  
+  .ratingValue {
+    font-size: 1rem;
+    color: #28a745;
+    background-color: #f4f4f4; /* Light background */
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    display: inline-block;
+    min-width: 2rem;
+    margin-left: 1rem; /* Remove the long left margin for better spacing */
+  }
+  
+  .ratingStars {
+    display: flex;
+    margin-bottom: 0.5rem; /* Reduced margin */
+  }
+  
+  .filledStar {
+    color: #FFD700;
+    font-size: 1.2rem;
+  }
+  
+  .emptyStar {
+    color: #e0e0e0;
+    font-size: 1.2rem;
+  }
+  
+  .ratingRow {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .review {
+    font-size: 1rem;
+    color: black;
+    margin-left: 1rem;
+  }
+  
+  .originalPriceRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    background-color: #f7f7f7;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+  }
+  
+  .originalPriceRow .label,
+  .originalPriceRow .value {
+    margin: 0;
+  }
+  
+  /* Container for the rating row */
+  .ratingValue {
+    background-color: #f4f4f4; /* Light background */
+    color: #333; /* Text color */
+    font-size: 1rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    display: inline-block;
+    min-width: 2rem;
+    margin-left: 0;
+  }
+  
+  .card .productName {
+    z-index: 2; /* Make sure text appears above purple overlay */
+  }
+  
+  .img {
+    position: relative;
+  }
+  
+  /* Media queries for responsiveness */
+  
+  /* For devices with a maximum width of 1366px (Web) */
+  @media (max-width: 1366px) {
+    .card {
+      width: 30%;
+    }
+  }
+  
+  /* For devices with a maximum width of 1024px (Tablets and smaller Web) */
+  @media (max-width: 1024px) {
+    .card {
+      width: 45%;
+    }
+    .ratingValue {
+      margin-left: 5rem;
+    }
+  }
+  
+  /* For devices with a maximum width of 768px (Mobile Portrait) */
+  @media (max-width: 768px) {
+    .productRow {
+      justify-content: center;
+    }
+  
+    .card {
+      width: 80%;
+      margin-bottom: 1rem;
+    }
+  
+    .ratingValue {
+      margin-left: 0;
+      margin-top: 1rem;
+    }
+  
+    .heading {
+      font-size: 1.5rem;
+    }
+  
+    .subheading {
+      font-size: 0.9rem;
+    }
+  
+    .value {
+      font-size: 0.8rem;
+    }
+  
+    .review {
+      font-size: 0.7rem;
+    }
+  }
+  

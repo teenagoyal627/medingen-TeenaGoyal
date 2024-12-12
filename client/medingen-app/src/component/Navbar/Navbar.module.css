@@ -1,0 +1,138 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar > div {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo {
+  height: 50px;
+}
+
+h5 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.nav {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.navList {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  gap: 2rem;
+}
+
+.navItem {
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  color: #6c757d;
+  transition: color 0.3s;
+}
+
+.navItem:hover {
+  color: #000;
+}
+
+.active {
+  background-color: #d1e7fe;
+  padding: 1rem;
+  border: 1px solid white;
+  border-radius: 1rem;
+  font-weight: bold;
+}
+
+.cart {
+  font-size: 1.5rem;
+  color: #6c757d;
+  transition: color 0.3s;
+  margin-left: auto;
+}
+
+.cart:hover {
+  color: #000;
+}
+
+/* Responsive styles */
+@media (max-width: 1366px) {
+  .navbar {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .navList {
+    gap: 1.5rem;  /* Adjust spacing between nav items for medium screen sizes */
+  }
+
+  .logo {
+    height: 40px;  /* Slightly reduce logo size for smaller screens */
+  }
+}
+
+@media (max-width: 1024px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navList {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  .logo {
+    height: 35px; /* Further reduce logo size for smaller screens */
+  }
+
+  .h5 {
+    font-size: 1rem; /* Adjust text size for smaller screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0;
+  }
+
+  .navList {
+    gap: 1rem;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cart {
+    font-size: 1.3rem; /* Adjust cart icon size for mobile */
+    margin-left: 0;
+    margin-top: 1rem;
+  }
+
+  .logo {
+    height: 30px;  /* Further reduce logo size for small mobile screens */
+  }
+
+  h5 {
+    font-size: 1rem;
+  }
+}
+

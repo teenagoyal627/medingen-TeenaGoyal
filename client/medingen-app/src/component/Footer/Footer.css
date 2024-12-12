@@ -1,0 +1,69 @@
+/* Footer container styling */
+.footer {
+    background-color: #0c0c0c;
+    padding: 20px;
+    margin-top: 30px;
+    color:white
+}
+
+/* Main content of the footer */
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Ensure sections wrap on smaller screens */
+}
+
+/* Footer sections */
+.footer-section {
+    flex: 1;
+    margin: 10px;
+}
+
+/* Section headings */
+.footer-section h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+/* Style for the lists in footer */
+.footer-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-section li {
+    margin-bottom: 5px;
+}
+
+/* Link styling */
+.footer-section a {
+    text-decoration: none;
+    color: white;
+}
+
+/* Bottom part of the footer */
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Mobile view adjustments */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column; /* Stack the sections vertically */
+        align-items: center; /* Center align the sections */
+    }
+
+    .footer-section {
+        width: 100%; /* Each section takes up the full width on mobile */
+        margin: 10px 0;
+    }
+
+    .footer-section h4 {
+        font-size: 16px;
+    }
+
+    .footer-bottom p {
+        font-size: 14px; /* Smaller text for mobile */
+    }
+}
